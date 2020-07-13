@@ -1,0 +1,14 @@
+{
+  "name": "sequelize-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "eslint": "^7.4.0",
+    "mysql2": "^2.1.0",
+    "sequelize": "^6.3.2"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.2.0"
+  }
+}
