@@ -1,11 +1,11 @@
-const Person = require('./personFactory');
+const Person = require('./personFactory');  
 const {sequelize} = require('../sequelizeFactory');
 
 const createPerson = async person => {
-    const t = sequelize.transaction();
+    const t = await sequelize.transaction();
     let newPerson = null;
     try {
-        newPerson = await Person.create(person, {transaction: t});
+        newPerson = await Person.create(person);
         await t.commit();
         return newPerson.toJSON();
     } catch(error) {

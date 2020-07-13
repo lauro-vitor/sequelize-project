@@ -17,8 +17,9 @@ const destroyUser = async id => {
             return true;
         }
         return false;
-    }catch(erro) {
+    }catch(error) {
         await t.rollback();
+        console.log(error);
         return false;
     }
 }

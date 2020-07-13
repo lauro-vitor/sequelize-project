@@ -1,8 +1,16 @@
 'use strict';
 
+const { DATE } = require("sequelize");
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('Persons',{
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
+      },
       name:{
         type: Sequelize.STRING
       },
@@ -16,11 +24,19 @@ module.exports = {
         references: {
           model: {
             tableName: 'Users',
-            //schema: 'schema',
           },
           key: 'id',
         }
+      },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE
       }
+
     })
     /**
      * Add altering commands here.
@@ -31,7 +47,7 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Users');
+    await queryInterface.dropTable('Persons');
     /**
      * Add reverting commands here.
      *
